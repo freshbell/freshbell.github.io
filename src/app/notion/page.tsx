@@ -6,7 +6,7 @@ import axios from "axios";
 import Image from "next/image";
 import DatabaseItem
  from "./database-item";
- 
+
 export async function getData() {
     const options = {
         method:'POST',
@@ -28,11 +28,11 @@ export default async function Cart() {
     // console.log(data);
 
     return (
+        // eslint-disable-next-line react/jsx-key
         <div>
             {/* <p>{data.properties.태그.multi_select.options[0].name}</p> */}
             <div className="grid grid-cols-l md:grid-col-2 py-10 m-6 gap-8 sm:w-full">
             {
-
                 data.results.map((item) => {
                     return (
                         <div>

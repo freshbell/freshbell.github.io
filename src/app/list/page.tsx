@@ -16,6 +16,7 @@ export default function List() {
 
     // Return 소괄호 안에는 하나의 Html 태그만 존재해야함.
     return (
+        // eslint-disable-next-line react/jsx-key
         <div>
             <h4 className="title">상품목록</h4>
             {/* {rendrItemList()} */}
