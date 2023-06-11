@@ -35,9 +35,7 @@ export default async function Cart() {
             {
                 data.results.map((item) => {
                     return (
-                        <div>
-                            <DatabaseItem key={item.id} data={item} />
-                        </div>
+                        <DatabaseItem key={item.id} data={item} />
                     )
                 })
             }
