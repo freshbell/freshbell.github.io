@@ -25,7 +25,7 @@ export default function DatabaseItem({data}:any) {
                 <p>url : <Link href={url}>{url}</Link></p>
                 <div className="flex items-start mt-2">
                     {
-                        tags.map((tag) => {
+                        tags.map((tag:any) => {
                             return <h1 className="px-2 py-1 mr-2 rounded-md bg-sky-200 dark:bg-sky-700 w-30" key={tag.id}>{tag.name}</h1>
                         })
                     }

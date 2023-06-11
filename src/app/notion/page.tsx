@@ -33,7 +33,7 @@ export default async function Cart() {
             {/* <p>{data.properties.태그.multi_select.options[0].name}</p> */}
             <div className="grid grid-cols-l md:grid-col-2 py-10 m-6 gap-8 sm:w-full">
             {
-                data.results.map((item) => {
+                data.results.map((item:any) => {
                     return (
                         <DatabaseItem key={item.id} data={item} />
                     )
