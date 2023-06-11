@@ -24,7 +24,7 @@ export default function List() {
                 상품.map((item:String, idx:number) => {
                     return (
                         // eslint-disable-next-line react/jsx-key
-                        <h4 key={idx} className="food"></h4>
+                        <h4 key={item} className="food"></h4>
                     )
                 })
             }
