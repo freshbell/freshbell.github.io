@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    images: {
+        domains:[
+            'www.notion.so',
+            'image.unsplash.com',
+            ''
+        ]
+    }
+}
 
 module.exports = nextConfig
