@@ -24,10 +24,10 @@ export default function List() {
                 상품.map((item:String, idx:number) => {
                     return (
                         // eslint-disable-next-line react/jsx-key
-                        <div className="food" key={idx}>
+                        <div key={idx} className="food">
                             {/* <Image src={tomato} className="food-img" alt={item.toString()}/> */}
                             {/* <img src={`/food${idx}.png`} className='food-img' /> */}
-                            <h4>{item}</h4>
+                            {/* <h4>{item}</h4> */}
                         </div>
                     )
                 })
