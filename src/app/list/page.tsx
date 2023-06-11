@@ -20,14 +20,14 @@ export default function List() {
         <div>
             <h4 className="title">상품목록</h4>
             {/* {rendrItemList()} */}
-            {
+            {/* {
                 상품.map((item:String, idx:number) => {
                     return (
                         // eslint-disable-next-line react/jsx-key
                         <h4 key={item} className="food"></h4>
                     )
-                })
-            }
+                }) */}
+            {/* } */}
         </div>
     )
 }
