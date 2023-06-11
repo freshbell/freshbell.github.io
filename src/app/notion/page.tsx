@@ -7,7 +7,7 @@ import Image from "next/image";
 import DatabaseItem
  from "./database-item";
 
-export async function getData() {
+async function getData() {
     const options = {
         method:'POST',
         url:`https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE}/query`,
