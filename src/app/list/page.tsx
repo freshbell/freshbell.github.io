@@ -25,7 +25,7 @@ export default function List() {
                         <div className="food" key={idx}>
                             {/* <Image src={tomato} className="food-img" alt={item.toString()}/> */}
                             {/* <img src={`/food${idx}.png`} className='food-img' /> */}
-                            <h4>{상품[idx]}</h4>
+                            <h4>{item}</h4>
                         </div>
                     )
                 })
