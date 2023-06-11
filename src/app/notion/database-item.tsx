@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function DatabaseItem({data}) {
+export default function DatabaseItem({data}:Props) {
 
     const title = data.properties.이름.title[0].plain_text;
     const url = data.properties.URL.url==null?'':data.properties.URL.url;
