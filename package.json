@@ -2,9 +2,12 @@
   "name": "nextjs-blog",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://freshbell.github.io/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
+    "predeploy": "npm run build",
+    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,6 +21,7 @@
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "express": "^4.18.2",
+    "gh-pages": "^5.0.0",
     "install": "^0.13.0",
     "next": "13.4.5",
     "notion-client": "^6.16.0",
@@ -27,7 +31,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "gh-pages": "^5.0.0",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2"
   }

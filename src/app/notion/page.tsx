@@ -6,6 +6,7 @@ import axios from "axios";
 import Image from "next/image";
 import DatabaseItem
  from "./database-item";
+import https from "https";
 
 async function getData() {
     const options = {
@@ -16,7 +17,10 @@ async function getData() {
             'Notion-version' : '2022-06-28',
             'authorization':process.env.NOTION_API_KEY,
             'content-type':'application/json'
-        }
+        },
+        httpsAgent: new https.Agent({
+            rejectUnauthorized: false, //허가되지 않은 인증을 reject하지 않겠다!
+          }),
     };
 
     const response = await axios.request(options);
