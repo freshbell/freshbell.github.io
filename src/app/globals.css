@@ -5,7 +5,8 @@
 body {
   margin:0;
   background:#303030;
-  color:white
+  color:white;
+  padding-top:70px;
 }
 
 .title {
@@ -17,35 +18,39 @@ body {
   text-align : center
 }
 
-.food {
-  margin:20px auto;
-  width: 200px;
-  background:white;
-  color:black;
-  padding:20px;
-  border-radius:5px;
-}
-
 .navbar {
+  position:fixed;
   background:white;
   padding:20px;
+  width:100%;
+  top:0;
+  left:0;
+  right:0;
 }
 
 .navbar a {
   color:black;
-  margin-right:10px;
   text-decoration:none;
 }
 
-.food-img {
-  width:100%;
-  height:auto;
+.navbar ul {
+  list-style:none;
+  margin-left:40px;
 }
 
-.cart-item {
+.navbar li {
+  float: left;
+  margin-right:20px;
+}
+
+.container {
   padding:10px;
-  display:flex;
-  justify-content:space-around;
-  border-bottom:1px solid grey;
-  line-height:0px;
+}
+
+li.threeList {
+  /* list-style: none; */
+  padding: 5px 0px 5px 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #efefef;
+  font-size:12 px;
 }

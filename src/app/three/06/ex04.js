@@ -3,7 +3,7 @@ import {FirstPersonControls} from 'three/examples/jsm/controls/FirstPersonContro
 
 // ----- 주제: OrbitControls
 
-export default function example(canvasRef) {
+export default function example4(canvasRef) {
 	// Renderer
 	const renderer = new THREE.WebGLRenderer({
 		canvas:canvasRef.current,

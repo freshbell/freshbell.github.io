@@ -3,7 +3,7 @@ import {FlyControls} from 'three/examples/jsm/controls/FlyControls'
 
 // ----- 주제: OrbitControls
 
-export default function example(canvasRef) {
+export default function example3(canvasRef) {
 	// Renderer
 	const renderer = new THREE.WebGLRenderer({
 		canvas:canvasRef.current,

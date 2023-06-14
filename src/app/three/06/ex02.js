@@ -1,13 +1,13 @@
 import * as THREE from "three";
 import {TrackballControls} from 'three/examples/jsm/controls/TrackballControls'
 
-export default function example(canvasRef) {
+export default function example2(canvasRef) {
 	// Renderer
 	const renderer = new THREE.WebGLRenderer({
 		canvas:canvasRef.current,
 		antialias: true
 	});
-	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 	renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
 
 	// Scene

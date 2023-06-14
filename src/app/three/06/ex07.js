@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls'
+import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls';
+import KeyController from './KeyController';
 
 // ----- 주제: OrbitControls
 
@@ -46,7 +47,24 @@ export default function example5(canvasRef) {
 	controls.addEventListener('unlock', () => {
 		console.log('unlock');
 	})
-	// controls.lock(); // 사용자의 동작을 받고 움직임
+	
+	// 키보드 컨트롤
+	var keyController = new KeyController();
+
+	function walk() {
+		if(keyController.keys['KeyW']) {
+			controls.moveForward(0.05);
+		}
+		if(keyController.keys['KeyS']) {
+			controls.moveForward(-0.05);
+		}
+		if(keyController.keys['KeyA']) {
+			controls.moveRight(-0.05);
+		}
+		if(keyController.keys['KeyD']) {
+			controls.moveRight(0.05);
+		}
+	}
 
 	// Mesh
 	const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -77,6 +95,7 @@ export default function example5(canvasRef) {
 	function draw() {
 		const delta = clock.getDelta();
 
+		walk();
 
 		renderer.render(scene, camera);
 		renderer.setAnimationLoop(draw);

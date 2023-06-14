@@ -1,10 +1,11 @@
 import * as THREE from 'three';
-import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-// ----- 주제: OrbitControls
+// ----- 주제: , MeshPhongMaterial, MeshStandardMaterial
 
 export default function example5(canvasRef) {
 	// Renderer
+	const canvas = document.querySelector('#three-canvas');
 	const renderer = new THREE.WebGLRenderer({
 		canvas:canvasRef.current,
 		antialias: true
@@ -14,6 +15,7 @@ export default function example5(canvasRef) {
 
 	// Scene
 	const scene = new THREE.Scene();
+	scene.background = new THREE.Color('white');
 
 	// Camera
 	const camera = new THREE.PerspectiveCamera(
@@ -26,7 +28,7 @@ export default function example5(canvasRef) {
 	camera.position.z = 4;
 	scene.add(camera);
 
-	// Light
+	// Light -- 빛이 있어야 Mesh에 색이 생김.
 	const ambientLight = new THREE.AmbientLight('white', 0.5);
 	scene.add(ambientLight);
 
@@ -36,47 +38,29 @@ export default function example5(canvasRef) {
 	scene.add(directionalLight);
 
 	// Controls
-	const controls = new PointerLockControls(camera, renderer.domElement);
-	controls.domElement.addEventListener('click', () => {
-		controls.lock();
-	});
-	controls.addEventListener('lock', () => {
-		console.log('lock');
-	})
-	controls.addEventListener('unlock', () => {
-		console.log('unlock');
-	})
-	// controls.lock(); // 사용자의 동작을 받고 움직임
+	const controls = new OrbitControls(camera, renderer.domElement);
 
 	// Mesh
 	const geometry = new THREE.BoxGeometry(1, 1, 1);
-	let mesh;
-	let material;
+	// 하이라이트, 반사광 재질 표현 가능.
+	const material = new THREE.MeshStandardMaterial({ 
+		color: 'orangered',
+		roughness:0.2,
+		metalness: 0.3,
+		// side:THREE.FrontSide
+		// side:THREE.BackSide
+	});
+	const mesh = new THREE.Mesh(geometry, material);
 
-	for (let i = 0 ; i < 20 ; i ++ ) {
-		material = new THREE.MeshStandardMaterial({
-			color:`rgb(
-					${50 + Math.floor(Math.random() * 205)},
-					${50 + Math.floor(Math.random() * 205)},
-					${50 + Math.floor(Math.random() * 205)}
-				)`
-		});
-		mesh = new THREE.Mesh(geometry, material);
-		mesh.position.x = (Math.random() - 0.5) * 5
-		mesh.position.y = (Math.random() - 0.5) * 5
-		mesh.position.z = (Math.random() - 0.5) * 5
+	mesh.position.set(0,0,0);
 
-		scene.add(mesh);
-	}
-
-	// scene.add(mesh);
+	scene.add(mesh);
 
 	// 그리기
 	const clock = new THREE.Clock();
 
 	function draw() {
 		const delta = clock.getDelta();
-
 
 		renderer.render(scene, camera);
 		renderer.setAnimationLoop(draw);
@@ -85,6 +69,7 @@ export default function example5(canvasRef) {
 	function setSize() {
 		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
+		
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		renderer.render(scene, camera);
 	}

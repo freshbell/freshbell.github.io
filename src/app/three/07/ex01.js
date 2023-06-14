@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// ----- 주제: MeshBasicMaterial
 
-// ----- 주제: OrbitControls
-
-export default function example5(canvasRef) {
+export default function example(canvasRef) {
 	// Renderer
+	const canvas = document.querySelector('#three-canvas');
 	const renderer = new THREE.WebGLRenderer({
 		canvas:canvasRef.current,
 		antialias: true
@@ -22,7 +22,7 @@ export default function example5(canvasRef) {
 		0.1,
 		1000
 	);
-	camera.position.y = 1.5;
+	// camera.position.y = 1.5;
 	camera.position.z = 4;
 	scene.add(camera);
 
@@ -36,47 +36,21 @@ export default function example5(canvasRef) {
 	scene.add(directionalLight);
 
 	// Controls
-	const controls = new PointerLockControls(camera, renderer.domElement);
-	controls.domElement.addEventListener('click', () => {
-		controls.lock();
-	});
-	controls.addEventListener('lock', () => {
-		console.log('lock');
-	})
-	controls.addEventListener('unlock', () => {
-		console.log('unlock');
-	})
-	// controls.lock(); // 사용자의 동작을 받고 움직임
+	const controls = new OrbitControls(camera, renderer.domElement);
 
 	// Mesh
 	const geometry = new THREE.BoxGeometry(1, 1, 1);
-	let mesh;
-	let material;
-
-	for (let i = 0 ; i < 20 ; i ++ ) {
-		material = new THREE.MeshStandardMaterial({
-			color:`rgb(
-					${50 + Math.floor(Math.random() * 205)},
-					${50 + Math.floor(Math.random() * 205)},
-					${50 + Math.floor(Math.random() * 205)}
-				)`
-		});
-		mesh = new THREE.Mesh(geometry, material);
-		mesh.position.x = (Math.random() - 0.5) * 5
-		mesh.position.y = (Math.random() - 0.5) * 5
-		mesh.position.z = (Math.random() - 0.5) * 5
-
-		scene.add(mesh);
-	}
-
-	// scene.add(mesh);
+	const material = new THREE.MeshBasicMaterial({ // 입체감이 없음
+		color: 'orange'
+	});
+	const mesh = new THREE.Mesh(geometry, material);
+	scene.add(mesh);
 
 	// 그리기
 	const clock = new THREE.Clock();
 
 	function draw() {
 		const delta = clock.getDelta();
-
 
 		renderer.render(scene, camera);
 		renderer.setAnimationLoop(draw);
@@ -85,6 +59,7 @@ export default function example5(canvasRef) {
 	function setSize() {
 		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
+		
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		renderer.render(scene, camera);
 	}

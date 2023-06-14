@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
-export default function example(canvasRef) {
+export default function example1(canvasRef) {
 	// Renderer
 	const renderer = new THREE.WebGLRenderer({
 		canvas:canvasRef.current,
@@ -9,7 +9,6 @@ export default function example(canvasRef) {
 	});
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
-
 	// Scene
 	const scene = new THREE.Scene();
 
