@@ -35,7 +35,7 @@ export default async function Cart() {
         // eslint-disable-next-line react/jsx-key
         <div>
             {/* <p>{data.properties.태그.multi_select.options[0].name}</p> */}
-            <div className="grid grid-cols-l md:grid-col-2 py-10 m-6 gap-8 sm:w-full">
+            <div className="grid grid-cols-4 md:grid-col-2 py-10 m-6 gap-8 sm:w-full">
             {
                 data.results.map((item:any) => {
                     return (

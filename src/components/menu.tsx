@@ -7,6 +7,7 @@ export default function Menu() {
             <Link href="/list">List</Link>
             <Link href="/cart">Cart</Link>
             <Link href="/notion">Notion</Link>
+            <Link href="/three">Three</Link>
         </div>
     )
 }
