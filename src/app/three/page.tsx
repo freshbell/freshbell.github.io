@@ -14,6 +14,7 @@ export default function List() {
                 <li className="threeList"><Link href='/three/05'>05. Group / Rotate</Link></li>
                 <li className="threeList"><Link href='/three/06'>06. Control</Link></li>
                 <li className="threeList"><Link href='/three/07'>07. Mesh</Link></li>
+                <li className="threeList"><Link href='/three/08'>08. Light</Link></li>
             </ul>
         </div>
     )
