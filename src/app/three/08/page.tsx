@@ -2,14 +2,6 @@
 
 import React, {useRef, RefObject, useEffect} from 'react';
 import example1 from './ex01';
-import example2 from './ex02';
-import example3 from './ex03';
-// import example4 from './ex04';
-import example5 from './ex05';
-import example6 from './ex06';
-import example7 from './ex07';
-import example8 from './ex08';
-import example9 from './ex09';
 
 
 export default function Three() {
@@ -18,7 +10,7 @@ export default function Three() {
     const canvasRef:RefObject<HTMLCanvasElement> = useRef<HTMLCanvasElement>(null);
     
 	useEffect(() => {
-        example9(canvasRef);
+        example1(canvasRef);
     })
 
     return (
